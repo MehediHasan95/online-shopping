@@ -1,0 +1,11 @@
+#errorImage {
+  width: 80%;
+  max-width: 1000px;
+  /* border: 1px solid black; */
+}
+.error {
+  /* border: 1px solid black; */
+  width: 50%;
+  height: 100vh;
+  margin: auto;
+}

@@ -1,0 +1,136 @@
+.Header {
+  background-image: url("../../images/bb.png");
+  font-family: "Poppins", sans-serif;
+  width: 100vw;
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#easy65 {
+  font-family: "Lobster", cursive;
+  font-size: 30px;
+  color: #eb5775;
+}
+#easy65:hover {
+  color: #4fa3ab;
+}
+
+#men {
+  margin-right: 15px;
+  font-size: 18px;
+  color: #8ac89f;
+}
+#men:hover {
+  color: #ff6666;
+}
+
+#women {
+  margin-right: 15px;
+  font-size: 18px;
+  color: #8ac89f;
+}
+#women:hover {
+  color: #ff6666;
+}
+
+#baby {
+  margin-right: 15px;
+  font-size: 18px;
+  color: #8ac89f;
+}
+#baby:hover {
+  color: #ff6666;
+}
+
+#about {
+  margin-right: 15px;
+  font-size: 18px;
+  color: #8ac89f;
+}
+#about:hover {
+  color: #ff6666;
+}
+
+#contact {
+  margin-right: 15px;
+  font-size: 18px;
+  color: #8ac89f;
+}
+#contact:hover {
+  color: #ff6666;
+}
+
+.BsCart3 {
+  cursor: pointer;
+  margin-right: 15px;
+  font-size: 18px;
+  color: #8ac89f;
+}
+.BsCart3:hover {
+  color: #ff6666;
+}
+
+.VscAccount {
+  margin-right: 15px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #8ac89f;
+}
+.VscAccount:hover {
+  color: #ff6666;
+}
+
+/* next part */
+.headerRow {
+  /* border: 1px solid black; */
+  height: 85vh;
+  width: 99%;
+  align-items: center;
+}
+
+.header-body {
+  display: flex;
+  /* border: 1px solid black; */
+  height: 85vh;
+}
+
+.slider {
+  width: 75%;
+  /* border: 1px solid black; */
+}
+
+#header-image {
+  width: 60%;
+  /* border: 1px solid black; */
+}
+
+.text-area {
+  /* border: 1px solid black; */
+  width: 500px;
+}
+
+.text-area h1 {
+  color: #ff6666;
+  font-size: 60px;
+  font-weight: bold;
+}
+.text-area h2 {
+  font-size: 40px;
+}
+
+.specialBtn {
+  color: white;
+  background-color: #ff6666;
+  padding: 5px 35px;
+  border: none;
+  border-radius: 23px;
+  transition: 0.5s;
+}
+.specialBtn:hover {
+  background-color: #4fa3ab;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  transition: 0.5s;
+}
+/* next part */
