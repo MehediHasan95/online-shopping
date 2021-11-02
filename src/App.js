@@ -1,10 +1,10 @@
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Header from "./components/Header/Header";
+import Home from "./components/Home/Home";
 import NoMatch from "./components/NoMatch/NoMatch";
 import Men from "./components/Men/Men";
 import Women from "./components/Women/Women";
-import Baby from "./components/Baby/Baby";
+import Review from "./components/Review/Review";
 
 function App() {
   return (
@@ -12,19 +12,19 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/">
-            <Header></Header>
+            <Home />
           </Route>
           <Route path="/men">
-            <Men></Men>
+            <Men />
           </Route>
           <Route path="/women">
-            <Women></Women>
+            <Women />
           </Route>
-          <Route path="/baby">
-            <Baby></Baby>
+          <Route path="/review">
+            <Review />
           </Route>
           <Route path="*">
-            <NoMatch></NoMatch>
+            <NoMatch />
           </Route>
         </Switch>
       </Router>

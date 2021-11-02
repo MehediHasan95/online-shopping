@@ -1,15 +1,16 @@
 import React from "react";
-import "./Header.css";
+import "./Home.css";
 import { BsCart3 } from "react-icons/bs";
 import { VscAccount } from "react-icons/vsc";
 
 import slider1 from "../../images/slider-1.png";
 import slider2 from "../../images/slider-2.png";
 import slider3 from "../../images/slider-3.png";
+import { Link } from "react-router-dom";
 
-const Header = () => {
+const Home = () => {
   return (
-    <div className="Header">
+    <div className="Home">
       <nav className="navbar navbar-expand-lg navbar-light">
         <div className="container-fluid">
           <a
@@ -41,7 +42,7 @@ const Header = () => {
               <a className="nav-link" id="women" href="/women">
                 WOMEN
               </a>
-              <a className="nav-link" id="baby" href="/baby">
+              <a className="nav-link" id="kids" href="/kids">
                 KIDS
               </a>
               <a className="nav-link" id="about" href="/about">
@@ -51,9 +52,13 @@ const Header = () => {
                 CONTACT
               </a>
             </div>
-            <div className="">
-              <BsCart3 className="BsCart3" />
-              <VscAccount className="VscAccount" />
+            <div>
+              <Link to="/order">
+                <BsCart3 className="BsCart3" />
+              </Link>
+              <Link to="/account">
+                <VscAccount className="VscAccount" />
+              </Link>
             </div>
           </div>
         </div>
@@ -65,8 +70,9 @@ const Header = () => {
             <h1>ONLINE</h1>
             <h2>SHOPPING</h2>
             <p>
-              The Online Shopping System for electronics item shop web
-              application is intended to provide complete solutions for vendors
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum
+              dolore molestias sapiente dolorem inventore laudantium similique
+              assumenda eaque sequi aliquid!
             </p>
             <button className="specialBtn">Shop</button>
           </div>
@@ -121,4 +127,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Home;

@@ -1,0 +1,49 @@
+.cardGroup {
+  /* border: 1px solid green; */
+}
+.cards {
+  /* border: 1px solid red; */
+  background-color: white;
+  padding: 20px;
+  margin: 10px;
+  width: 100%;
+  max-width: 300px;
+  height: 100%;
+  max-height: 450px;
+  text-align: center;
+}
+
+.cards:hover {
+  box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
+}
+
+#cardImage {
+  width: 100%;
+}
+.image {
+  /* border: 1px solid green; */
+  width: 250px;
+  height: 280px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.title {
+  /* border: 1px solid black; */
+  overflow: hidden;
+  width: 250px;
+  height: 55px;
+  margin-top: 5px;
+}
+
+.cartBtn {
+  background-color: goldenrod;
+  padding: 3px 40px;
+  text-align: center;
+  color: white;
+  border: none;
+  border-radius: 23px;
+}
+.cartBtn:hover {
+  background-color: #b9b91b;
+}

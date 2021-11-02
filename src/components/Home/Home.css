@@ -1,5 +1,5 @@
-.Header {
-  background-image: url("../../images/bb.png");
+.Home {
+  background-image: url("../../images/background.png");
   font-family: "Poppins", sans-serif;
   width: 100vw;
   height: 100vh;
@@ -35,12 +35,12 @@
   color: #ff6666;
 }
 
-#baby {
+#kids {
   margin-right: 15px;
   font-size: 18px;
   color: #8ac89f;
 }
-#baby:hover {
+#kids:hover {
   color: #ff6666;
 }
 

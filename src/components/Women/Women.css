@@ -1,0 +1,11 @@
+.Women {
+  background-color: #fff2f2;
+}
+.box1 {
+  border-right: 1px solid #636363;
+}
+
+.cardItem {
+  display: flex;
+  flex-wrap: wrap;
+}
