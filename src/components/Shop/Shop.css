@@ -1,0 +1,8 @@
+.productCart {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cart {
+  border: 1px solid green;
+}

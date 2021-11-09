@@ -1,27 +1,33 @@
-.orderCard {
-  border: 1px solid black;
-  width: 100%;
-  max-width: 800px;
-  height: 250px;
-  margin: 20px;
+.Order {
+  /* border: 1px solid black; */
   display: flex;
-  padding: 10px;
-  overflow: hidden;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 .orderImage {
-  border: 1px solid black;
-  width: 100%;
-  max-width: 250px;
-  height: 230px;
-  overflow: hidden;
+  /* box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset,
+    rgba(0, 0, 0, 0.9) 0px 0px 0px 1px; */
 }
+
 .orderDetails {
   /* border: 1px solid green; */
-  padding: 20px;
-  margin-left: 20px;
-  overflow: hidden;
+  padding: 15px;
+  margin-left: 5px;
 }
-#orderImg {
-  width: 100%;
-  object-fit: fill;
+
+.removeButton {
+  background-color: #f57224;
+  color: white;
+  padding: 3px 20px;
+  border: none;
+  border-radius: 0px;
+  transition: 0.1s;
+}
+
+.removeButton:hover {
+  background-color: #da163d;
+  color: white;
+  transition: 0.1s;
 }

@@ -36,27 +36,23 @@ const Home = () => {
             id="navbarNavAltMarkup"
           >
             <div className="navbar-nav h6 ">
-              <a className="nav-link" id="men" href="/men">
-                MEN
-              </a>
-              <a className="nav-link" id="women" href="/women">
-                WOMEN
-              </a>
-              <a className="nav-link" id="kids" href="/kids">
-                KIDS
-              </a>
-              <a className="nav-link" id="about" href="/about">
+              <Link to="/shop" className="nav-link" id="men">
+                SHOP
+              </Link>
+
+              <Link to="/about" className="nav-link" id="men">
                 ABOUT
-              </a>
-              <a className="nav-link" id="contact" href="/contact">
+              </Link>
+
+              <Link to="/contact" className="nav-link" id="men">
                 CONTACT
-              </a>
+              </Link>
             </div>
             <div>
-              <Link to="/order">
+              <Link to="/review">
                 <BsCart3 className="BsCart3" />
               </Link>
-              <Link to="/account">
+              <Link to="/login">
                 <VscAccount className="VscAccount" />
               </Link>
             </div>
