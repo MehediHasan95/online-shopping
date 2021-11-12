@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./LogIn.css";
 import { FcGoogle } from "react-icons/fc";
 import { BsFacebook } from "react-icons/bs";
@@ -15,6 +15,8 @@ import {
   updateProfile,
 } from "firebase/auth";
 import firebaseConfig from "./firebase.config";
+import { UserContext } from "../../App";
+import { useHistory, useLocation } from "react-router";
 
 firebase.initializeApp(firebaseConfig);
 
@@ -28,6 +30,13 @@ const LogIn = () => {
     success: false,
     error: "",
   });
+
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+
+  const history = useHistory();
+  const location = useLocation();
+
+  const { from } = location.state || { from: { pathname: "/" } };
 
   const auth = getAuth();
   const provider = new GoogleAuthProvider();
@@ -100,7 +109,9 @@ const LogIn = () => {
           newUserInfo.success = true;
           newUserInfo.error = "";
           setUser(newUserInfo);
-          console.log("name", res.user);
+          setLoggedInUser(newUserInfo);
+          history.replace(from);
+          console.log("Customer Username", res.user);
         })
         .catch((error) => {
           const newUserInfo = { ...user };
@@ -109,21 +120,21 @@ const LogIn = () => {
           setUser(newUserInfo);
         });
     }
-
-    const updateUserInfo = (username) => {
-      updateProfile(auth.currentUser, {
-        displayName: username,
-      })
-        .then((res) => {
-          console.log("user profile updated", res);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    };
-
     e.preventDefault();
   };
+
+  const updateUserInfo = (username) => {
+    updateProfile(auth.currentUser, {
+      displayName: username,
+    })
+      .then((res) => {
+        console.log("user profile updated", res);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <div className="SignInSignUp">
       <form onSubmit={handleSubmit} className="form-field">

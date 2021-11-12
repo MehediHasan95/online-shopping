@@ -8,10 +8,16 @@ import About from "./components/About/About";
 import ProductDetails from "./components/ProductDetails/ProductDetails";
 import LogIn from "./components/LogIn/LogIn";
 import Shipment from "./components/Shipment/Shipment";
+import { createContext, useState } from "react";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
+
+export const UserContext = createContext();
 
 function App() {
+  const [loggedInUser, setLoggedInUser] = useState({});
+
   return (
-    <div className="App">
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
       <Router>
         <Switch>
           <Route exact path="/">
@@ -30,24 +36,24 @@ function App() {
             <About />
           </Route>
 
-          <Route path="/review">
+          <PrivateRoute path="/review">
             <Review />
-          </Route>
+          </PrivateRoute>
 
           <Route path="/login">
             <LogIn />
           </Route>
 
-          <Route path="/shipment">
+          <PrivateRoute path="/shipment">
             <Shipment />
-          </Route>
+          </PrivateRoute>
 
           <Route path="*">
             <NoMatch />
           </Route>
         </Switch>
       </Router>
-    </div>
+    </UserContext.Provider>
   );
 }
 
