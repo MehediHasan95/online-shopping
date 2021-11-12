@@ -1,3 +1,95 @@
-.login {
-  border: 1px solid red;
+.SignInSignUp {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #333333;
+  border-radius: 15px;
+  font-family: "Roboto", sans-serif;
+}
+
+.SignInSignUp h4 {
+  text-align: center;
+  color: white;
+}
+
+.form-field {
+  padding: 20px 40px;
+}
+
+.input-field input {
+  width: 300px;
+  margin: 5px 0px;
+  padding: 8px 20px;
+  outline-color: gold;
+  border: none;
+  border-radius: 23px;
+}
+
+.submit-field {
+  margin-top: 5px;
+  width: 300px;
+  padding: 7px 20px;
+  border: none;
+  border-radius: 23px;
+  background-color: goldenrod;
+  color: white;
+  font-weight: bold;
+}
+
+.submit-field:hover {
+  background-color: gold;
+}
+
+.successMessage {
+  color: #70db70;
+  text-align: center;
+}
+
+.errorMessage {
+  color: #ff4d4d;
+  text-align: center;
+}
+
+.linkConnected {
+  text-align: center;
+  color: white;
+}
+
+.google {
+  font-size: 30px;
+  transition: 1s;
+  margin: 0px 5px;
+  cursor: pointer;
+}
+.google:hover {
+  transform: rotate(360deg);
+  transition: 1s;
+}
+
+.facebook {
+  font-size: 27.3px;
+  color: #4267b2;
+  transition: 1s;
+  margin: 0px 5px;
+  cursor: pointer;
+}
+
+.facebook:hover {
+  transform: rotate(360deg);
+  transition: 1s;
+}
+
+.toggleButton {
+  border: none;
+  border-radius: 13px;
+  padding: 0px 20px;
+  margin: 10px 0px;
+  background-color: #333333;
+  color: white;
+  text-decoration: underline;
+}
+
+.toggleButton:hover {
+  color: #3366ff;
 }

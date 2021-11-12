@@ -7,8 +7,15 @@ import slider1 from "../../images/slider-1.png";
 import slider2 from "../../images/slider-2.png";
 import slider3 from "../../images/slider-3.png";
 import { Link } from "react-router-dom";
+// import { useHistory } from "react-router";
 
 const Home = () => {
+  // const history = useHistory();
+
+  // const handleCart = () => {
+  //   history.push("/shipment");
+  // };
+
   return (
     <div className="Home">
       <nav className="navbar navbar-expand-lg navbar-light">

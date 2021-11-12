@@ -5,18 +5,21 @@ import fakeData from "../../fakeData/localDatabase.json";
 import Product from "../Product/Product";
 import "./Shop.css";
 import { addToDb } from "../../utilities/fakedb";
+import { useHistory } from "react-router";
 
 const Shop = () => {
   const data = fakeData;
   const [filter, setFilter] = useState(data);
   //console.log(filter);
   const [cart, setCart] = useState([]);
+  const history = useHistory();
 
   const handleAddProduct = (product) => {
     //console.log("added...", product);
     const newCart = [...cart, product];
     setCart(newCart);
     addToDb(product.key);
+    history.push("/shipment");
   };
 
   const filterProduct = (product) => {

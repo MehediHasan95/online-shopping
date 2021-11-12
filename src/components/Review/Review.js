@@ -8,20 +8,18 @@ import {
 import fakeData from "../../fakeData/localDatabase.json";
 import Order from "../Order/Order";
 import OrderSummery from "../OrderSummery/OrderSummery";
-import congratulations from "../../images/congratulations.png";
+import thankYou from "../../images/thank-you.gif";
 import { useHistory } from "react-router";
 
 const Review = () => {
   const [review, setReview] = useState([]);
   const [clean, setClean] = useState(false);
   const [confirm, setConfirm] = useState(false);
-  const history = useHistory();
 
   const handleProcessOrder = () => {
-    // setReview([]);
-    // setConfirm(true);
-    // clearTheCart();
-    history.push("/shipment");
+    setReview([]);
+    setConfirm(true);
+    clearTheCart();
   };
 
   const removeProduct = (productKey) => {
@@ -52,7 +50,7 @@ const Review = () => {
   if (confirm) {
     confirmOrder = (
       <div>
-        <img src={congratulations} alt="" id="congratulations" />
+        <img src={thankYou} alt="" id="congratulations" />
         <p>Continue Shopping</p>
       </div>
     );
