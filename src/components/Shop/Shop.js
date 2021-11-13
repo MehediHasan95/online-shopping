@@ -19,7 +19,7 @@ const Shop = () => {
     const newCart = [...cart, product];
     setCart(newCart);
     addToDb(product.key);
-    history.push("/shipment");
+    history.push("/review");
   };
 
   const filterProduct = (product) => {

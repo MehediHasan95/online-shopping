@@ -188,6 +188,7 @@ const LogIn = () => {
               <input
                 type="email"
                 name="email"
+                onBlur={handleBlur}
                 placeholder="Confirm Email Address"
                 required
               ></input>
@@ -207,6 +208,7 @@ const LogIn = () => {
               <input
                 type="password"
                 placeholder="Confirm Password"
+                onBlur={handleBlur}
                 required
               ></input>
             </div>
@@ -240,12 +242,14 @@ const LogIn = () => {
 
       {user.success && (
         <p className="successMessage">
-          {newUser
-            ? "Account sucessfully created"
-            : "You have successfully sign in"}
+          {newUser ? "Account Sucessfully Created" : "Log In Successfull"}
         </p>
       )}
-      {user.error && <p className="errorMessage">Already have an account?</p>}
+      {user.error && (
+        <p className="errorMessage">
+          {newUser ? "Already have an account?" : "Couldn't find your account"}
+        </p>
+      )}
     </div>
   );
 };

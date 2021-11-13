@@ -42,12 +42,12 @@
 }
 
 .successMessage {
-  color: #70db70;
+  color: #00b33c;
   text-align: center;
 }
 
 .errorMessage {
-  color: #ff4d4d;
+  color: #ff1a1a;
   text-align: center;
 }
 
