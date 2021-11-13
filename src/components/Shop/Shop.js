@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import fakeData from "../../fakeData/localDatabase.json";
@@ -6,8 +6,10 @@ import Product from "../Product/Product";
 import "./Shop.css";
 import { addToDb } from "../../utilities/fakedb";
 import { useHistory } from "react-router";
+import { UserContext } from "../../App";
 
 const Shop = () => {
+  // const [loggInUser, setLoggInInUser] = useContext(UserContext);
   const data = fakeData;
   const [filter, setFilter] = useState(data);
   //console.log(filter);
@@ -19,7 +21,7 @@ const Shop = () => {
     const newCart = [...cart, product];
     setCart(newCart);
     addToDb(product.key);
-    history.push("/review");
+    //history.push("/review");
   };
 
   const filterProduct = (product) => {
@@ -103,6 +105,12 @@ const Shop = () => {
                   {cart.length === 0 ? "" : cart.length}
                 </a>
               </div>
+              {/* <button
+                className="btn btn-outline-dark ms-2"
+                onClick={() => setLoggInInUser({})}
+              >
+                Sign Out
+              </button> */}
             </div>
           </div>
         </nav>

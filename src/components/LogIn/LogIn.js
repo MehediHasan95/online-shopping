@@ -32,10 +32,8 @@ const LogIn = () => {
   });
 
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-
   const history = useHistory();
   const location = useLocation();
-
   const { from } = location.state || { from: { pathname: "/" } };
 
   const auth = getAuth();
@@ -43,9 +41,12 @@ const LogIn = () => {
 
   const handleSignIn = () => {
     signInWithPopup(auth, provider).then((res) => {
-      const user = res.user;
+      const { displayName, email } = res.user;
       const signedInUser = {
         isSignedIn: true,
+        name: displayName,
+        email: email,
+        success: true,
       };
       setUser(signedInUser);
     });
@@ -60,7 +61,7 @@ const LogIn = () => {
         setUser(signOutUser);
       })
       .catch((error) => {
-        // An error happened.
+        console.log(error);
       });
   };
 

@@ -1,5 +1,5 @@
 import "./Review.css";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   clearTheCart,
   deleteFromDb,
@@ -9,9 +9,10 @@ import fakeData from "../../fakeData/localDatabase.json";
 import Order from "../Order/Order";
 import OrderSummery from "../OrderSummery/OrderSummery";
 import thankYou from "../../images/thank-you.gif";
-import { useHistory } from "react-router";
+import { UserContext } from "../../App";
 
 const Review = () => {
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   const [review, setReview] = useState([]);
   const [clean, setClean] = useState(false);
   const [confirm, setConfirm] = useState(false);
@@ -58,8 +59,35 @@ const Review = () => {
 
   return (
     <div className="row container-fluid">
-      <h2 className="text-center">EASY65</h2>
-
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/shop">
+            EASY65
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarText"
+            aria-controls="navbarText"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+            <span class="navbar-text">
+              <button
+                className="btn btn-outline-dark"
+                onClick={() => setLoggedInUser({})}
+              >
+                Sign Out
+              </button>
+            </span>
+          </div>
+        </div>
+      </nav>
       <hr />
 
       <div className="col-md-9 box1">
