@@ -4,6 +4,7 @@ import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import "./Order.css";
 
 const Order = (props) => {
+  //console.log(props);
   const {
     key,
     title,

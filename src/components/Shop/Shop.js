@@ -1,12 +1,18 @@
 import React, { useContext, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+
 import fakeData from "../../fakeData/localDatabase.json";
 import Product from "../Product/Product";
 import "./Shop.css";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faShoppingBag,
+  faShoppingCart,
+} from "@fortawesome/free-solid-svg-icons";
 import { addToDb } from "../../utilities/fakedb";
-import { useHistory } from "react-router";
-import { UserContext } from "../../App";
+//import { useHistory } from "react-router";
+//import { UserContext } from "../../App";
+import { Link } from "react-router-dom";
 
 const Shop = () => {
   // const [loggInUser, setLoggInInUser] = useContext(UserContext);
@@ -14,7 +20,7 @@ const Shop = () => {
   const [filter, setFilter] = useState(data);
   //console.log(filter);
   const [cart, setCart] = useState([]);
-  const history = useHistory();
+  //const history = useHistory();
 
   const handleAddProduct = (product) => {
     //console.log("added...", product);
@@ -32,11 +38,11 @@ const Shop = () => {
   const ShowProduct = () => {
     return (
       <>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light py-0 shadow-sm">
+        <nav className="navbar navbar-expand-lg navbar-light bg-light py-0 shadow-sm sticky-top">
           <div className="container">
-            <a className="navbar-brand fw-bold fs-4" href="/">
-              EASY65
-            </a>
+            <Link className="navbar-brand fs-4 EASY65" to="/">
+              <FontAwesomeIcon icon={faShoppingBag} /> EASY65
+            </Link>
             <button
               className="navbar-toggler"
               type="button"
@@ -54,63 +60,63 @@ const Shop = () => {
             >
               <ul className="navbar-nav mx-auto mb-2 mb-lg-0 h6">
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="#/"
+                  <Link
+                    className="nav-link allLink"
+                    to="#"
                     onClick={() => setFilter(data)}
                   >
                     All
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="#/"
+                  <Link
+                    className="nav-link allLink"
+                    to="#"
                     onClick={() => filterProduct("men")}
                   >
                     MEN
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item ">
-                  <a
-                    className="nav-link"
-                    href="#/"
+                  <Link
+                    className="nav-link allLink"
+                    to="#"
                     onClick={() => filterProduct("women")}
                   >
                     WOMEN
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="#/"
+                  <Link
+                    className="nav-link allLink"
+                    to="#"
                     onClick={() => filterProduct("girlsBaby")}
                   >
                     GIRLS KIDS
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    href="#/"
+                  <Link
+                    className="nav-link allLink"
+                    to="#"
                     onClick={() => filterProduct("boysBaby")}
                   >
                     BOYS KIDS
-                  </a>
+                  </Link>
                 </li>
               </ul>
-              <div className="buttons">
-                <a href="/review" className="btn btn-outline-dark">
-                  <FontAwesomeIcon icon={faShoppingCart} /> Cart{" "}
-                  {cart.length === 0 ? "" : cart.length}
-                </a>
-              </div>
-              {/* <button
-                className="btn btn-outline-dark ms-2"
-                onClick={() => setLoggInInUser({})}
+
+              <Link
+                to="/review"
+                className="d-flex align-center-center addToCartBtn"
               >
-                Sign Out
-              </button> */}
+                <FontAwesomeIcon icon={faShoppingCart} />
+                <span>
+                  <sup className="addCart">
+                    {cart.length === 0 ? "" : cart.length}
+                  </sup>
+                </span>
+              </Link>
             </div>
           </div>
         </nav>
@@ -120,6 +126,11 @@ const Shop = () => {
         </div> */}
 
         <div className="productCart d-flex justify-content-center">
+          {filter.length === 0 && (
+            <div class="spinner-grow" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          )}
           {filter.map((e) => (
             <Product
               key={e.key}

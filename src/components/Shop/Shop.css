@@ -1,8 +1,36 @@
+.EASY65 {
+  font-family: "Lobster", cursive;
+}
+
 .productCart {
   display: flex;
   flex-wrap: wrap;
 }
 
-.cart {
-  border: 1px solid green;
+.addCart {
+  font-size: 18px;
+  margin-left: 3px;
+  color: red;
+  font-weight: bold;
+}
+
+.addToCartBtn {
+  text-decoration: none;
+  color: #333333;
+  transition: 0.5s;
+}
+.addToCartBtn:hover {
+  transform: scale(1.3);
+  color: goldenrod;
+  transition: 0.5s;
+}
+
+.allLink {
+  font-size: 20px;
+  margin: 0px 5px;
+  transition: 2s;
+}
+.allLink:hover {
+  transform: scale(1.2);
+  transition: 0.5s;
 }

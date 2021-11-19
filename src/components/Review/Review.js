@@ -1,4 +1,8 @@
 import "./Review.css";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingBag, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
+
 import React, { useContext, useEffect, useState } from "react";
 import {
   clearTheCart,
@@ -10,6 +14,7 @@ import Order from "../Order/Order";
 import OrderSummery from "../OrderSummery/OrderSummery";
 import thankYou from "../../images/thank-you.gif";
 import { UserContext } from "../../App";
+import { Link } from "react-router-dom";
 
 const Review = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
@@ -44,7 +49,11 @@ const Review = () => {
 
   let cleanOrder;
   if (clean) {
-    cleanOrder = <h2>clean card</h2>;
+    cleanOrder = (
+      <div className="cleanCard d-flex justify-content-center align-items-center">
+        <h2 className="cleanMessage">There are no items in this cart...</h2>
+      </div>
+    );
   }
 
   let confirmOrder;
@@ -52,17 +61,21 @@ const Review = () => {
     confirmOrder = (
       <div>
         <img src={thankYou} alt="" id="congratulations" />
-        <p>Continue Shopping</p>
+        <h5>
+          <Link to="/shop" className="continueShopping">
+            CONTINUE SHOPPING
+          </Link>
+        </h5>
       </div>
     );
   }
 
   return (
     <div className="row container-fluid">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <div class="container-fluid">
-          <a class="navbar-brand" href="/shop">
-            EASY65
+          <a class="navbar-brand EASY65" href="/shop">
+            <FontAwesomeIcon icon={faShoppingBag} /> EASY65
           </a>
           <button
             class="navbar-toggler"
@@ -76,12 +89,13 @@ const Review = () => {
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+            <ul class="navbar-nav me-auto"></ul>
             <span class="navbar-text">
               <button
                 className="btn btn-outline-dark"
                 onClick={() => setLoggedInUser({})}
               >
+                <FontAwesomeIcon icon={faSignOutAlt} />
                 Sign Out
               </button>
             </span>

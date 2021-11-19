@@ -1,0 +1,25 @@
+.About {
+  height: 100vh;
+  /* background-color: #333333; */
+  animation-name: example;
+  animation: example 10s infinite;
+}
+
+@keyframes example {
+  from {
+    background-color: #33cccc;
+  }
+  to {
+    background-color: #ffcc66;
+  }
+}
+
+.about-area {
+  width: 500px;
+  text-align: center;
+}
+
+/* .about-area h1,
+p {
+  color: white;
+} */

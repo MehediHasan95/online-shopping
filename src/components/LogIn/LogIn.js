@@ -2,12 +2,12 @@ import React, { useContext, useState } from "react";
 import "./LogIn.css";
 import { FcGoogle } from "react-icons/fc";
 import { BsFacebook } from "react-icons/bs";
-
 import * as firebase from "firebase/app";
 import "firebase/auth";
 import {
   getAuth,
   signInWithPopup,
+  FacebookAuthProvider,
   signOut,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
@@ -18,6 +18,8 @@ import firebaseConfig from "./firebase.config";
 import { UserContext } from "../../App";
 import { useHistory, useLocation } from "react-router";
 
+import Cookies from "js-cookie";
+
 firebase.initializeApp(firebaseConfig);
 
 const LogIn = () => {
@@ -26,6 +28,7 @@ const LogIn = () => {
     isSignedIn: false,
     username: "",
     email: "",
+    photo: "",
     password: "",
     success: false,
     error: "",
@@ -37,28 +40,53 @@ const LogIn = () => {
   const { from } = location.state || { from: { pathname: "/" } };
 
   const auth = getAuth();
-  const provider = new GoogleAuthProvider();
+  const GoogleProvider = new GoogleAuthProvider();
+  const FacebookProvider = new FacebookAuthProvider();
 
   const handleSignIn = () => {
-    signInWithPopup(auth, provider).then((res) => {
-      const { displayName, email } = res.user;
-      const signedInUser = {
-        isSignedIn: true,
-        name: displayName,
-        email: email,
-        success: true,
-      };
-      setUser(signedInUser);
-    });
+    signInWithPopup(auth, GoogleProvider)
+      .then((result) => {
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const { displayName, photoURL, email } = result.user;
+
+        const SignedInUser = {
+          isSignedIn: true,
+          username: displayName,
+          email: email,
+          photo: photoURL,
+        };
+        setUser(SignedInUser);
+        //console.log(displayName, email, photoURL);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        const email = error.email;
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        console.log(errorCode, errorMessage, email, credential);
+      });
+  };
+
+  const handleFbSignIn = () => {
+    signInWithPopup(auth, FacebookProvider)
+      .then((result) => {
+        const user = result.user;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const handleSignOut = () => {
     signOut(auth)
-      .then((res) => {
-        const signOutUser = {
+      .then(() => {
+        const signedOutUser = {
           isSignedIn: false,
+          username: "",
+          email: "",
+          photo: "",
         };
-        setUser(signOutUser);
+        setUser(signedOutUser);
       })
       .catch((error) => {
         console.log(error);
@@ -112,8 +140,12 @@ const LogIn = () => {
           setUser(newUserInfo);
           setLoggedInUser(newUserInfo);
           history.replace(from);
-          console.log("Customer Username", res.user);
+          //localStorage.setItem("user", user.email);
+
+          //Cookies.set("token", "foo");
+          //console.log("Customer Username", res.user);
         })
+
         .catch((error) => {
           const newUserInfo = { ...user };
           newUserInfo.error = error.message;
@@ -138,6 +170,9 @@ const LogIn = () => {
 
   return (
     <div className="SignInSignUp">
+      {/* {user.isSignedIn && <h3>Email: {user.username}</h3>}
+      {user.isSignedIn && <h3>Email: {user.email}</h3>} */}
+
       <form onSubmit={handleSubmit} className="form-field">
         <h4>{newUser ? "CREATE ACCOUNT" : "LOG IN"}</h4>
         {!newUser && (
@@ -232,7 +267,7 @@ const LogIn = () => {
         ) : (
           <FcGoogle onClick={handleSignIn} className="google" />
         )}
-        <BsFacebook className="facebook" />
+        <BsFacebook onClick={handleFbSignIn} className="facebook" />
       </div>
 
       <div className="d-flex justify-content-center">

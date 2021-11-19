@@ -5,10 +5,28 @@
 }
 
 .confirmOrder {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   text-align: center;
 }
 
 #congratulations {
   width: 50%;
+}
+
+.continueShopping {
+  text-decoration: none;
+  color: #2e2e2e;
+}
+.continueShopping:hover {
+  text-decoration: underline;
+}
+
+.cleanCard {
+  /* border: 1px solid black; */
+  height: 85vh;
+}
+
+.cleanMessage {
+  /* border: 1px solid black; */
+  padding: 20px;
 }

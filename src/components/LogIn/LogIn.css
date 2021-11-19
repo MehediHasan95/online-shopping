@@ -21,7 +21,7 @@
   width: 300px;
   margin: 5px 0px;
   padding: 8px 20px;
-  outline-color: gold;
+  outline-color: #00b33c;
   border: none;
   border-radius: 23px;
 }
@@ -32,13 +32,15 @@
   padding: 7px 20px;
   border: none;
   border-radius: 23px;
-  background-color: goldenrod;
-  color: #333333;
+  background-color: crimson;
+  color: white;
   font-weight: bold;
+  transition: 0.5s;
 }
 
 .submit-field:hover {
-  background-color: gold;
+  background-color: #00b33c;
+  transition: 0.5s;
 }
 
 .successMessage {

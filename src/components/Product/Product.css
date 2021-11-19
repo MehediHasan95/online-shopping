@@ -40,19 +40,19 @@
 }
 
 .cardButton {
-  background-color: #f57224;
-  color: white;
+  background-color: white;
+
   outline: none;
-  border: none;
-  border-radius: 0px;
+  border: 1px solid black;
+  border-radius: 23px;
   padding: 3px 25px;
-  transition: 0.01s;
+  transition: 0.5s;
 }
 
 .cardButton:hover {
-  background-color: #16da51;
+  background-color: rgb(51, 51, 51);
   color: white;
-  transition: 0.01s;
+  transition: 0.5s;
 }
 
 .cards:hover {
