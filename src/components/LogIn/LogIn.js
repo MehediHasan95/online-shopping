@@ -142,7 +142,7 @@ const LogIn = () => {
           history.replace(from);
           //localStorage.setItem("user", user.email);
 
-          //Cookies.set("token", "foo");
+          Cookies.set("token", user.email);
           //console.log("Customer Username", res.user);
         })
 
