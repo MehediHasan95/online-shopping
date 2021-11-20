@@ -2,25 +2,14 @@ import React, { useContext, useState } from "react";
 import "./LogIn.css";
 import { FcGoogle } from "react-icons/fc";
 import { BsFacebook } from "react-icons/bs";
-import * as firebase from "firebase/app";
-import "firebase/auth";
-import {
-  getAuth,
-  signInWithPopup,
-  FacebookAuthProvider,
-  signOut,
-  GoogleAuthProvider,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  updateProfile,
-} from "firebase/auth";
-import firebaseConfig from "./firebase.config";
 import { UserContext } from "../../App";
 import { useHistory, useLocation } from "react-router";
+import firebase from "firebase";
+import "firebase/auth";
+//import firebaseConfig from "./firebase.config";
+//import Cookies from "js-cookie";
 
-import Cookies from "js-cookie";
-
-firebase.initializeApp(firebaseConfig);
+// firebase.initializeApp(firebaseConfig);
 
 const LogIn = () => {
   const [newUser, setNewUser] = useState(false);
@@ -39,16 +28,13 @@ const LogIn = () => {
   const location = useLocation();
   const { from } = location.state || { from: { pathname: "/" } };
 
-  const auth = getAuth();
-  const GoogleProvider = new GoogleAuthProvider();
-  const FacebookProvider = new FacebookAuthProvider();
-
   const handleSignIn = () => {
-    signInWithPopup(auth, GoogleProvider)
+    var googleProvider = new firebase.auth.GoogleAuthProvider();
+    firebase
+      .auth()
+      .signInWithPopup(googleProvider)
       .then((result) => {
-        const credential = GoogleAuthProvider.credentialFromResult(result);
         const { displayName, photoURL, email } = result.user;
-
         const SignedInUser = {
           isSignedIn: true,
           username: displayName,
@@ -56,29 +42,24 @@ const LogIn = () => {
           photo: photoURL,
         };
         setUser(SignedInUser);
-        //console.log(displayName, email, photoURL);
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        const email = error.email;
-        const credential = GoogleAuthProvider.credentialFromError(error);
-        console.log(errorCode, errorMessage, email, credential);
       });
   };
 
   const handleFbSignIn = () => {
-    signInWithPopup(auth, FacebookProvider)
-      .then((result) => {
-        const user = result.user;
-      })
+    var facebookProvider = new firebase.auth.FacebookAuthProvider();
+    firebase
+      .auth()
+      .signInWithPopup(facebookProvider)
+      .then((result) => {})
       .catch((error) => {
         console.log(error);
       });
   };
 
   const handleSignOut = () => {
-    signOut(auth)
+    firebase
+      .auth()
+      .signOut()
       .then(() => {
         const signedOutUser = {
           isSignedIn: false,
@@ -114,8 +95,11 @@ const LogIn = () => {
   };
 
   const handleSubmit = (e) => {
+    e.preventDefault();
     if (newUser && user.email && user.password) {
-      createUserWithEmailAndPassword(auth, user.email, user.password)
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(user.email, user.password)
         .then((res) => {
           const newUserInfo = { ...user };
           newUserInfo.success = true;
@@ -132,20 +116,22 @@ const LogIn = () => {
     }
 
     if (!newUser && user.email && user.password) {
-      signInWithEmailAndPassword(auth, user.email, user.password)
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(user.email, user.password)
         .then((res) => {
           const newUserInfo = { ...user };
           newUserInfo.success = true;
           newUserInfo.error = "";
           setUser(newUserInfo);
           setLoggedInUser(newUserInfo);
+          storeAuthToken();
           history.replace(from);
           //localStorage.setItem("user", user.email);
 
-          Cookies.set("token", user.email);
+          //Cookies.set("token", user.email);
           //console.log("Customer Username", res.user);
         })
-
         .catch((error) => {
           const newUserInfo = { ...user };
           newUserInfo.error = error.message;
@@ -153,20 +139,43 @@ const LogIn = () => {
           setUser(newUserInfo);
         });
     }
-    e.preventDefault();
   };
 
-  const updateUserInfo = (username) => {
-    updateProfile(auth.currentUser, {
-      displayName: username,
-    })
-      .then((res) => {
-        console.log("user profile updated", res);
+  const storeAuthToken = () => {
+    firebase
+      .auth()
+      .currentUser.getIdToken(true)
+      .then(function (idToken) {
+        //console.log(idToken);
+        sessionStorage.setItem("token", idToken);
       })
-      .catch((error) => {
+      .catch(function (error) {
         console.log(error);
       });
   };
+
+  const updateUserInfo = (name) => {
+    const user = firebase.auth().currentUser;
+
+    user
+      .updateProfile({
+        displayName: name,
+      })
+      .then(function () {
+        console.log("user name updated successfully");
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
+  // const updateUserInfo = (username) => {
+  //   updateProfile(auth.currentUser, {
+  //     displayName: username,
+  //   })
+  //     .then((res) => {})
+  //     .catch((error) => {});
+  // };
 
   return (
     <div className="SignInSignUp">
