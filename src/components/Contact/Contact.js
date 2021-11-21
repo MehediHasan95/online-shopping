@@ -6,6 +6,7 @@ import "./Contact.css";
 const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -14,15 +15,17 @@ const Contact = () => {
       .add({
         name: name,
         email: email,
+        message: message,
       })
       .then(() => {
-        alert("Thank you");
+        alert("Thank you for your response");
       })
       .catch((error) => {
         alert(error.message);
       });
     setName("");
     setEmail("");
+    setMessage("");
   };
 
   return (
@@ -36,27 +39,38 @@ const Contact = () => {
     //     <input type="submit" value="SEND" className="feedbackButton" />
     //   </div>
     // </div>
-    <div>
-      <form onSubmit={handleFormSubmit}>
-        <h1>Contact us</h1>
-        <label htmlFor="text">Name</label>
-        <input
-          type="text"
-          placeholder="Your name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          placeholder="Enter your email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-
-        <input type="submit" value="Submit" />
-      </form>
+    <div className="Contact d-flex justify-content-center align-items-center">
+      <div className="contact-area">
+        <form onSubmit={handleFormSubmit}>
+          <h1 className="feedback">CONTACT US</h1>
+          <br />
+          <input
+            type="text"
+            className="input-area"
+            placeholder="Your Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <br />
+          <input
+            type="email"
+            className="input-area"
+            placeholder="Email Address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <br />
+          <textarea
+            type="text"
+            className="textarea-area"
+            placeholder="Your Message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          ></textarea>
+          <br />
+          <input type="submit" value="SEND" className="feedBackBtn" />
+        </form>
+      </div>
     </div>
   );
 };

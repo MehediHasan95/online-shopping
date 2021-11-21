@@ -15,7 +15,8 @@
 }
 
 .about-area {
-  width: 500px;
+  /* border: 1px solid black; */
+  width: 600px;
   text-align: center;
 }
 

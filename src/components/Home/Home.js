@@ -261,6 +261,7 @@ const Home = () => {
               Any questions? Let us know in store at 8th floor, 379 Hudson St,
               New York, NY 10018 or call us on (+1) 96 716 6879
             </p>
+            <a href="/contact">FAQ</a>
           </div>
           <div className="footer-box">
             <h5>Network</h5>

@@ -15,6 +15,7 @@ import OrderSummery from "../OrderSummery/OrderSummery";
 import thankYou from "../../images/thank-you.gif";
 import { UserContext } from "../../App";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router";
 
 const Review = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
@@ -22,10 +23,13 @@ const Review = () => {
   const [clean, setClean] = useState(false);
   const [confirm, setConfirm] = useState(false);
 
+  const history = useHistory();
+
   const handleProcessOrder = () => {
     setReview([]);
     setConfirm(true);
     clearTheCart();
+    history.push("/shipment");
   };
 
   const removeProduct = (productKey) => {

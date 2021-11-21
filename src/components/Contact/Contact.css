@@ -1,44 +1,45 @@
-/* .Contact {
+.Contact {
   background-color: #33cccc;
   height: 100vh;
 }
 
 .contact-area {
-  padding: 60px;
-  background-color: #313131;
-  border-radius: 33px 0px;
+  padding: 50px;
+  background-color: #333333;
+  border-radius: 0px 23px;
 }
 
-.contact-area h2 {
+.feedback {
   text-align: center;
   color: white;
 }
 
-.contact-area input {
+.input-area {
+  width: 300px;
+  padding: 5px 8px;
   margin-bottom: 10px;
-  width: 350px;
-  height: 40px;
-  background-color: white;
-  padding: 0px 10px;
-  outline-color: crimson;
+  outline-color: white;
+  border: none;
+}
+.textarea-area {
+  border: none;
+  width: 300px;
+  padding: 5px 8px;
+  outline-color: white;
+  margin-bottom: 5px;
 }
 
-.contact-area textarea {
-  width: 350px;
-  height: 90px;
-  padding: 0px 10px;
-  outline-color: crimson;
-}
+.feedBackBtn {
+  width: 300px;
 
-.feedbackButton {
-  border: 1px solid black;
-  background-color: white;
-  color: #333333;
-  transition: 0.5s;
+  padding: 5px 8px;
   font-weight: bold;
-}
-.feedbackButton:hover {
-  background-color: #333333;
   color: white;
-  transition: 0.5s;
-} */
+  border: none;
+  background-color: slateblue;
+}
+
+.feedBackBtn:hover {
+  background-color: #ffcc66;
+  color: #333333;
+}

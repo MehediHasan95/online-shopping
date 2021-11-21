@@ -7,10 +7,11 @@ const About = () => {
       <div className="about-area">
         <h1>About us</h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium
-          suscipit repudiandae quibusdam commodi sequi amet ullam natus ex,
-          debitis neque totam, eaque pariatur rem rerum a fugit libero
-          reprehenderit. Perspiciatis.
+          Easy65 is a new fashion brand, started it's journey on 10th September
+          2017 with a grand opeing as "easy65 life style bd" .The brand open
+          it's first shop in mailbag,dhaka. Easy65 Life Style providing elegance
+          &lucrative outfit items sourced both locally & globally.proudly Made
+          in Bangladesh
         </p>
       </div>
     </div>

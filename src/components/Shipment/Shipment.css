@@ -1,0 +1,45 @@
+.Shipment {
+  /* border: 1px solid black; */
+  height: 100vh;
+  padding: 50px;
+}
+
+.ship-form {
+  /* border: 1px solid red; */
+  width: 300px;
+  padding: 20px;
+  background-color: #333333;
+  color: white;
+}
+
+.ship-title {
+  margin: 0px 5px;
+}
+
+.ship-input {
+  display: block;
+  width: 250px;
+  padding: 5px 8px;
+  margin-bottom: 20px;
+  border: none;
+  outline: none;
+  color: seagreen;
+  font-weight: bold;
+}
+
+.ship-required {
+  color: red;
+}
+
+.ship-button {
+  display: block;
+  width: 250px;
+  padding: 5px 8px;
+  background-color: crimson;
+  border: none;
+  color: white;
+}
+
+.ship-button:hover {
+  background-color: limegreen;
+}
