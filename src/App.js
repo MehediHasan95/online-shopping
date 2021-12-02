@@ -10,7 +10,6 @@ import LogIn from "./components/LogIn/LogIn";
 import Shipment from "./components/Shipment/Shipment";
 import { createContext, useState } from "react";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
-import Cookies from "js-cookie";
 import Contact from "./components/Contact/Contact";
 
 export const UserContext = createContext();

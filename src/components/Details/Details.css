@@ -68,19 +68,49 @@
   color: gold;
 }
 
-#review-area {
+.review-area {
   width: 100%;
-  padding: 20px;
+  height: 100px;
+  padding: 10px;
 }
 
-.submit-area {
-  width: 200px;
-  height: 50px;
+.review-area::-webkit-input-placeholder {
+  font-family: "myFont", "Courier New", Courier, monospace;
+}
+
+.review-area:-ms-input-placeholder {
+  font-family: "myFont", "Courier New", Courier, monospace;
+}
+
+.review-area:-moz-placeholder {
+  font-family: "myFont", "Courier New", Courier, monospace;
+}
+
+.review-area::-moz-placeholder {
+  font-family: "myFont", "Courier New", Courier, monospace;
+}
+
+.review-button {
   border: none;
+  padding: 5px 50px;
   background-color: #33ccff;
-  font-weight: bold;
   color: white;
 }
-.submit-area:hover {
-  background-color: #0f7699;
+.review-button:hover {
+  background-color: #399fff;
+}
+
+.review-cart {
+  margin-bottom: 10px;
+  padding: 20px;
+  box-shadow: rgba(60, 64, 67, 0.15) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.likeButton {
+  margin-right: 10px;
+}
+
+.likeButton:hover {
+  color: #4267b2;
 }

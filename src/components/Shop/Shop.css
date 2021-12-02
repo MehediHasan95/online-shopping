@@ -1,5 +1,17 @@
-.EASY65 {
+.main-shop {
+  background-color: azure;
+}
+
+.shop-easy65 {
   font-family: "Lobster", cursive;
+}
+
+.shop-easy65:hover {
+  color: crimson;
+}
+
+.easy65Icon {
+  color: crimson;
 }
 
 .productCart {
@@ -8,29 +20,24 @@
 }
 
 .addCart {
-  font-size: 18px;
+  font-size: 15px;
   margin-left: 3px;
-  color: red;
-  font-weight: bold;
+  color: gold;
 }
 
 .addToCartBtn {
   text-decoration: none;
-  color: #333333;
-  transition: 0.5s;
+  color: white;
 }
 .addToCartBtn:hover {
-  transform: scale(1.3);
-  color: goldenrod;
-  transition: 0.5s;
+  color: crimson;
 }
 
 .allLink {
-  font-size: 20px;
-  margin: 0px 5px;
-  transition: 2s;
+  margin: 0px 8px;
+  color: white;
+  text-decoration: none;
 }
 .allLink:hover {
-  transform: scale(1.2);
-  transition: 0.5s;
+  color: crimson;
 }

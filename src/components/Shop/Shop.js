@@ -5,14 +5,12 @@ import Product from "../Product/Product";
 import "./Shop.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faShoppingBag,
-  faShoppingCart,
-} from "@fortawesome/free-solid-svg-icons";
+import { faStoreAlt } from "@fortawesome/free-solid-svg-icons";
 import { addToDb } from "../../utilities/fakedb";
 //import { useHistory } from "react-router";
 //import { UserContext } from "../../App";
 import { Link } from "react-router-dom";
+import { MdShoppingCart } from "react-icons/md";
 
 const Shop = () => {
   // const [loggInUser, setLoggInInUser] = useContext(UserContext);
@@ -20,6 +18,7 @@ const Shop = () => {
   const [filter, setFilter] = useState(data);
   //console.log(filter);
   const [cart, setCart] = useState([]);
+
   //const history = useHistory();
 
   const handleAddProduct = (product) => {
@@ -37,11 +36,12 @@ const Shop = () => {
 
   const ShowProduct = () => {
     return (
-      <>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light py-0 shadow-sm sticky-top">
+      <div className="main-shop">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark py-0 shadow-sm sticky-top">
           <div className="container">
-            <Link className="navbar-brand fs-4 EASY65" to="/">
-              <FontAwesomeIcon icon={faShoppingBag} /> EASY65
+            <Link className="navbar-brand" to="/">
+              <FontAwesomeIcon icon={faStoreAlt} className="easy65Icon" />
+              <span className="shop-easy65">Easy65</span>
             </Link>
             <button
               className="navbar-toggler"
@@ -58,46 +58,46 @@ const Shop = () => {
               className="collapse navbar-collapse"
               id="navbarSupportedContent"
             >
-              <ul className="navbar-nav mx-auto mb-2 mb-lg-0 h6">
-                <li className="nav-item">
+              <ul className="navbar-nav mx-auto">
+                <li>
                   <Link
-                    className="nav-link allLink"
+                    className="allLink"
                     to="#"
                     onClick={() => setFilter(data)}
                   >
                     All
                   </Link>
                 </li>
-                <li className="nav-item">
+                <li>
                   <Link
-                    className="nav-link allLink"
+                    className="allLink"
                     to="#"
                     onClick={() => filterProduct("men")}
                   >
                     MEN
                   </Link>
                 </li>
-                <li className="nav-item ">
+                <li>
                   <Link
-                    className="nav-link allLink"
+                    className="allLink"
                     to="#"
                     onClick={() => filterProduct("women")}
                   >
                     WOMEN
                   </Link>
                 </li>
-                <li className="nav-item">
+                <li>
                   <Link
-                    className="nav-link allLink"
+                    className="allLink"
                     to="#"
                     onClick={() => filterProduct("girlsBaby")}
                   >
                     GIRLS KIDS
                   </Link>
                 </li>
-                <li className="nav-item">
+                <li>
                   <Link
-                    className="nav-link allLink"
+                    className="allLink"
                     to="#"
                     onClick={() => filterProduct("boysBaby")}
                   >
@@ -110,7 +110,7 @@ const Shop = () => {
                 to="/review"
                 className="d-flex align-center-center addToCartBtn"
               >
-                <FontAwesomeIcon icon={faShoppingCart} />
+                <MdShoppingCart />
                 <span>
                   <sup className="addCart">
                     {cart.length === 0 ? "" : cart.length}
@@ -131,6 +131,7 @@ const Shop = () => {
               <span class="visually-hidden">Loading...</span>
             </div>
           )}
+
           {filter.map((e) => (
             <Product
               key={e.key}
@@ -139,7 +140,7 @@ const Shop = () => {
             ></Product>
           ))}
         </div>
-      </>
+      </div>
     );
   };
 

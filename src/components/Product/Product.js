@@ -1,8 +1,8 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+
 import "./Product.css";
 import { Link } from "react-router-dom";
+import { MdShoppingCart } from "react-icons/md";
 
 const Product = (props) => {
   const { key, title, image, price } = props.product;
@@ -15,7 +15,7 @@ const Product = (props) => {
           </div>
           <div className="title">
             <Link to={"/product-details/" + key} className="productDetails">
-              <h5>{title}</h5>
+              <h6>{title}</h6>
             </Link>
           </div>
           <div className="details">
@@ -27,7 +27,8 @@ const Product = (props) => {
             className="cardButton"
             onClick={() => props.handleAddProduct(props.product)}
           >
-            <FontAwesomeIcon icon={faShoppingCart} /> ADD TO CART
+            <MdShoppingCart />
+            Add to Cart
           </button>
         </div>
       </div>

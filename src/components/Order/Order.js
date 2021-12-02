@@ -26,11 +26,11 @@ const Order = (props) => {
         <div className="orderDetails">
           <h5>{title}</h5>
           <p>Cost: {price}TK</p>
-          <p>Catagory: {category}</p>
-          <p>
+          {/* <p>Catagory: {category}</p> */}
+          {/* <p>
             Rating: {star} ({starCount}⭐)
           </p>
-          <p>Only {stock} left in stock - order soon</p>
+          <p>Only {stock} left in stock - order soon</p> */}
           <h6>Quantity: {quantity}</h6>
           <button
             className="removeButton"

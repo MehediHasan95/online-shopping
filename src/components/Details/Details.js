@@ -1,16 +1,57 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   MdOutlineAddShoppingCart,
   MdOutlineShoppingCart,
 } from "react-icons/md";
 import { BiSend, BiStar } from "react-icons/bi";
+import { AiFillDislike, AiFillLike } from "react-icons/ai";
 import { BsStarFill, BsStarHalf } from "react-icons/bs";
-
 import "./Details.css";
+import { db } from "../LogIn/firebase.config";
+import { Link } from "react-router-dom";
 
 const Details = (props) => {
-  const { category, key, title, image, price, stock, star, starCount } =
-    props.details;
+  const { category, key, title, image, price, stock, star } = props.details;
+
+  const [loading, setLoading] = useState(true);
+  const [posts, setPosts] = useState([]);
+  const [feed, setFeed] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    db.collection("Comment").add({
+      feedBack: feed,
+    });
+    setFeed("");
+  };
+
+  useEffect(() => {
+    const getPostsFromFirebase = [];
+    const subscriber = db.collection("Comment").onSnapshot((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        getPostsFromFirebase.push({
+          ...doc.data(),
+          key: doc.id,
+        });
+      });
+      setPosts(getPostsFromFirebase);
+      setLoading(false);
+    });
+
+    return () => subscriber();
+  }, [loading]);
+
+  if (loading) {
+    return (
+      <div className="d-flex justify-content-center">
+        <div className="spinner-border" role="status">
+          <span className="sr-only"></span>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div>
       <div className="details-cards">
@@ -26,7 +67,7 @@ const Details = (props) => {
             <b>CATAGORY:</b> {category}
           </p>
           <p>
-            <b> Rating:</b> {star} ({starCount})
+            <b> Rating:</b> {star} (⭐⭐⭐)
           </p>
           <p>
             <b>Stock:</b> Only {stock} left in stock - order soon
@@ -34,10 +75,12 @@ const Details = (props) => {
           <h6>
             <b>COST:</b> {price} <span className="taka">&#2547;</span>
           </h6>
-          <div className="">
-            <button className="buyNowButton1">
-              BUY NOW <MdOutlineShoppingCart className="iconSize" />
-            </button>
+          <div>
+            <Link to="/review">
+              <button className="buyNowButton1">
+                BUY NOW <MdOutlineShoppingCart className="iconSize" />
+              </button>
+            </Link>
             <button className="buyNowButton1">
               ADD TO CART <MdOutlineAddShoppingCart className="iconSize" />
             </button>
@@ -93,19 +136,32 @@ const Details = (props) => {
           </div>
         </div>
         <hr />
-        <h4>Questions about this product</h4>
-        <textarea
-          name=""
-          id="review-area"
-          placeholder="Enter your question here"
-        ></textarea>
-        <button className="submit-area">
-          ASK QUESTIONS <BiSend />
-        </button>
+
+        <div>
+          <form onSubmit={handleSubmit}>
+            <textarea
+              className="review-area"
+              placeholder="Please share your feedback about the product: was the product as described? What is the quality like?"
+              value={feed}
+              onChange={(e) => setFeed(e.target.value)}
+            ></textarea>
+            <button type="submit" className="review-button" value="Submit">
+              Submit <BiSend />
+            </button>
+          </form>
+        </div>
       </div>
-      <br />
-      <br />
-      <br />
+      <div className="container">
+        <hr />
+
+        {posts.map((e) => (
+          <div className="review-cart">
+            <p>{e.feedBack}</p>
+            <AiFillLike className="likeButton" />
+            <AiFillDislike className="likeButton" />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

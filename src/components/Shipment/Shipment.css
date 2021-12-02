@@ -1,12 +1,13 @@
 .Shipment {
   /* border: 1px solid black; */
-  height: 100vh;
-  padding: 50px;
+  height: 85vh;
+  display: flex;
 }
 
 .ship-form {
   /* border: 1px solid red; */
   width: 300px;
+  height: 450px;
   padding: 20px;
   background-color: #333333;
   color: white;
@@ -23,7 +24,6 @@
   margin-bottom: 20px;
   border: none;
   outline: none;
-  color: seagreen;
   font-weight: bold;
 }
 
@@ -41,5 +41,42 @@
 }
 
 .ship-button:hover {
-  background-color: limegreen;
+  background-color: #dc143ccc;
+}
+
+.shipment-order {
+  /* border: 1px solid black; */
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+.shop-easy65-ship {
+  font-size: 40px;
+  font-family: "Lobster", cursive;
+}
+.easy65IconShip {
+  font-size: 40px;
+  color: crimson;
+}
+
+.receiverinfo {
+  padding: 20px;
+}
+
+.trakingID {
+  /* border: 1px solid black; */
+  padding: 5px 5px;
+  background-color: #e2e2e29f;
+}
+
+.trackNum {
+  margin-left: 10px;
+  color: orangered;
+  cursor: copy;
+}
+
+.receiverCard {
+  /* border: 1px solid black; */
+  margin-top: 5px;
+  padding: 10px;
 }

@@ -1,3 +1,5 @@
+import { faStoreAlt } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { MdShoppingCart } from "react-icons/md";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
@@ -13,9 +15,10 @@ const ProductDetails = () => {
     <>
       <nav class="container navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="/shop">
-            EASY65
-          </a>
+          <Link className="navbar-brand" to="/shop">
+            <FontAwesomeIcon icon={faStoreAlt} className="easy65Icon" />
+            <span className="shop-easy65">Easy65</span>
+          </Link>
           <button
             class="navbar-toggler"
             type="button"

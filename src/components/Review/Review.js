@@ -1,8 +1,7 @@
 import "./Review.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingBag, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
-
+import { faSignOutAlt, faStoreAlt } from "@fortawesome/free-solid-svg-icons";
 import React, { useContext, useEffect, useState } from "react";
 import {
   clearTheCart,
@@ -78,9 +77,10 @@ const Review = () => {
     <div className="row container-fluid">
       <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <div class="container-fluid">
-          <a class="navbar-brand EASY65" href="/shop">
-            <FontAwesomeIcon icon={faShoppingBag} /> EASY65
-          </a>
+          <Link className="navbar-brand" to="/shop">
+            <FontAwesomeIcon icon={faStoreAlt} className="easy65Icon" />
+            <span className="shop-easy65">Easy65</span>
+          </Link>
           <button
             class="navbar-toggler"
             type="button"

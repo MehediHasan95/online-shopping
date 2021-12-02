@@ -1,14 +1,14 @@
 .total {
-  color: #f57224;
+  color: crimson;
 }
 .processPay {
   border: none;
   width: 300px;
   height: 40px;
-  background-color: #f57224;
+  background-color: darkcyan;
   color: white;
 }
 
 .processPay:hover {
-  background-color: #fc5c00;
+  background-color: limegreen;
 }

@@ -125,11 +125,8 @@ const LogIn = () => {
           newUserInfo.error = "";
           setUser(newUserInfo);
           setLoggedInUser(newUserInfo);
-          storeAuthToken();
-          history.replace(from);
-          //localStorage.setItem("user", user.email);
 
-          //Cookies.set("token", user.email);
+          history.replace(from);
           //console.log("Customer Username", res.user);
         })
         .catch((error) => {
@@ -139,19 +136,6 @@ const LogIn = () => {
           setUser(newUserInfo);
         });
     }
-  };
-
-  const storeAuthToken = () => {
-    firebase
-      .auth()
-      .currentUser.getIdToken(true)
-      .then(function (idToken) {
-        //console.log(idToken);
-        sessionStorage.setItem("token", idToken);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
   };
 
   const updateUserInfo = (name) => {

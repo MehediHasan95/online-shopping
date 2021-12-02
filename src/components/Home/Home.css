@@ -1,3 +1,7 @@
+.main-home-page {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
 .logoDesign {
   padding: 3px;
   border-radius: 100px;
@@ -12,7 +16,17 @@
 .e65 {
   font-family: "Lobster", cursive;
   font-size: 20px;
-  font-weight: normal;
+}
+.link65 {
+  text-decoration: none;
+  color: black;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+  margin: 0px 10px;
+  font-weight: bold;
 }
 
 .icon {
@@ -132,6 +146,10 @@ p {
 .footer-box a {
   text-decoration: none;
   color: white;
+}
+
+.footer-box li {
+  list-style-type: none;
 }
 
 .footerEasy65 {

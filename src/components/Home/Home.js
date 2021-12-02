@@ -36,11 +36,11 @@ const Home = () => {
   // };
 
   return (
-    <>
+    <div div className="main-home-page">
       <div className="container">
-        <nav className="navbar navbar-expand-lg navbar-light">
+        <nav className="navbar navbar-expand-lg">
           <div className="container-fluid">
-            <Link className="navbar-brand" to="#/">
+            <Link className="link65" to="/">
               <span className="logoDesign">
                 <FontAwesomeIcon icon={faStoreAlt} className="mainLogo" />
               </span>
@@ -61,24 +61,24 @@ const Home = () => {
               className="collapse navbar-collapse"
               id="navbarSupportedContent"
             >
-              <ul className="navbar-nav mx-auto mb-2 mb-lg-0 fw-bold">
-                <li className="nav-item">
-                  <Link className="nav-link" to="/shop">
+              <ul className="navbar-nav mx-auto ">
+                <li className="">
+                  <Link className="link" to="/shop">
                     Shop
                   </Link>
                 </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="">
+                <li className="">
+                  <Link className="link" to="">
                     Blog
                   </Link>
                 </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/about">
+                <li className="">
+                  <Link className="link" to="/about">
                     About
                   </Link>
                 </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/contact">
+                <li className="">
+                  <Link className="link" to="/contact">
                     Contact
                   </Link>
                 </li>
@@ -126,6 +126,7 @@ const Home = () => {
         <div className="carousel-inner">
           <div className="carousel-item active">
             <img src={slider1} className="d-block w-100" alt="..." />
+
             <div className="carousel-caption d-none d-md-block text">
               <h1>Minimal Menz Style</h1>
               <p>
@@ -265,20 +266,19 @@ const Home = () => {
           </div>
           <div className="footer-box">
             <h5>Network</h5>
-            <ul>
-              <li>
-                <BsFacebook /> <a href="www.facebook.com">Facebook</a>
-              </li>
-              <li>
-                <BsTwitter /> <a href="www.twitter.com">Twitter</a>
-              </li>
-              <li>
-                <AiFillYoutube /> <a href="www.youtube.com">Youtube</a>
-              </li>
-              <li>
-                <AiFillLinkedin /> <a href="www.linkedin.com">Linkedin</a>
-              </li>
-            </ul>
+
+            <li>
+              <BsFacebook /> <a href="www.facebook.com">Facebook</a>
+            </li>
+            <li>
+              <BsTwitter /> <a href="www.twitter.com">Twitter</a>
+            </li>
+            <li>
+              <AiFillYoutube /> <a href="www.youtube.com">Youtube</a>
+            </li>
+            <li>
+              <AiFillLinkedin /> <a href="www.linkedin.com">Linkedin</a>
+            </li>
           </div>
         </div>
 
@@ -289,7 +289,7 @@ const Home = () => {
           </span>
         </p>
       </div>
-    </>
+    </div>
   );
 };
 
