@@ -15,6 +15,7 @@ import thankYou from "../../images/thank-you.gif";
 import { UserContext } from "../../App";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router";
+import Cookies from "js-cookie";
 
 const Review = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
@@ -73,6 +74,10 @@ const Review = () => {
     );
   }
 
+  const handleCookiesRemove = () => {
+    Cookies.remove("token");
+  };
+
   return (
     <div className="row container-fluid">
       <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
@@ -97,7 +102,7 @@ const Review = () => {
             <span class="navbar-text">
               <button
                 className="btn btn-outline-dark"
-                onClick={() => setLoggedInUser({})}
+                onClick={handleCookiesRemove}
               >
                 <FontAwesomeIcon icon={faSignOutAlt} />
                 Sign Out

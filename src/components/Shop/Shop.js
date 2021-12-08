@@ -133,7 +133,7 @@ const Shop = () => {
             }}
           />
           <button className="searchButton">
-            <AiOutlineSearch />
+            Search <AiOutlineSearch />
           </button>
         </div>
 

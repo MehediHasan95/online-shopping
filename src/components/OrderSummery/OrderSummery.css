@@ -5,10 +5,9 @@
   border: none;
   width: 300px;
   height: 40px;
-  background-color: darkcyan;
-  color: white;
+  background-color: goldenrod;
 }
 
 .processPay:hover {
-  background-color: limegreen;
+  background-color: gold;
 }

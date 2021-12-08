@@ -180,7 +180,7 @@ const Shipment = () => {
               <input
                 type="submit"
                 className="ship-button"
-                value="Place Order"
+                value="PLACE ORDER"
               />
             </form>
           </div>
@@ -193,7 +193,7 @@ const Shipment = () => {
               value={payment}
               onChange={(e) => setPayment(e.target.value)}
             >
-              <option value="">Select payment option</option>
+              <option selected>---Select---</option>
               <option value="Cash">Cash</option>
               <option value="Bkash">Bkash</option>
               <option value="Nagat">Nagat</option>

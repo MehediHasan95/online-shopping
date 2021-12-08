@@ -36,13 +36,12 @@
   display: block;
   width: 250px;
   padding: 5px 8px;
-  background-color: crimson;
+  background-color: goldenrod;
   border: none;
-  color: white;
 }
 
 .ship-button:hover {
-  background-color: forestgreen;
+  background-color: gold;
 }
 
 .shipment-order {
@@ -89,7 +88,7 @@
 
 .paymentOption {
   width: 220px;
-  padding: 8px;
+  text-align: center;
 }
 
 .spinnerCircle {

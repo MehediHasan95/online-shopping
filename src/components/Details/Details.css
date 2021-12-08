@@ -33,14 +33,14 @@
   margin-top: 100px;
   margin-right: 10px;
   border: none;
-  background-color: #33ccff;
+  background-color: goldenrod;
   font-weight: bold;
   color: white;
   transition: 1s;
 }
 .buyNowButton1:hover {
-  background-color: #cc99ff;
-  border: 1px solid #333333;
+  background-color: rgb(168, 133, 44);
+
   transform: scale(1.05);
   transition: 1s;
 }
