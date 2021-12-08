@@ -1,9 +1,6 @@
-import React, { useContext, useState } from "react";
-
+import React, { useState } from "react";
 import fakeData from "../../fakeData/localDatabase.json";
 import Product from "../Product/Product";
-import "./Shop.css";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStoreAlt } from "@fortawesome/free-solid-svg-icons";
 import { addToDb } from "../../utilities/fakedb";
@@ -11,13 +8,16 @@ import { addToDb } from "../../utilities/fakedb";
 //import { UserContext } from "../../App";
 import { Link } from "react-router-dom";
 import { MdShoppingCart } from "react-icons/md";
+import { AiOutlineSearch } from "react-icons/ai";
+import "./Shop.css";
 
 const Shop = () => {
   // const [loggInUser, setLoggInInUser] = useContext(UserContext);
   const data = fakeData;
-  const [filter, setFilter] = useState(data);
+  const [filters, setFilters] = useState(data);
   //console.log(filter);
   const [cart, setCart] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   //const history = useHistory();
 
@@ -31,7 +31,7 @@ const Shop = () => {
 
   const filterProduct = (product) => {
     const updateList = data.filter((e) => e.category === product);
-    setFilter(updateList);
+    setFilters(updateList);
   };
 
   const ShowProduct = () => {
@@ -63,7 +63,7 @@ const Shop = () => {
                   <Link
                     className="allLink"
                     to="#"
-                    onClick={() => setFilter(data)}
+                    onClick={() => setFilters(data)}
                   >
                     All
                   </Link>
@@ -105,11 +105,13 @@ const Shop = () => {
                   </Link>
                 </li>
               </ul>
-
-              <Link
-                to="/review"
-                className="d-flex align-center-center addToCartBtn"
-              >
+              {/* <marquee width="55%" direction="left" className="scrollText">
+                ⭐⭐⭐There are several offers happening here, actually. You
+                have the big one: <span className="discount">10% discount</span>{" "}
+                the entire site and store for everyday. Above that, you have
+                free shipping on all orders your 6000tk purchase⭐⭐⭐
+              </marquee> */}
+              <Link to="/review" className="addToCartBtn">
                 <MdShoppingCart />
                 <span>
                   <sup className="addCart">
@@ -121,24 +123,43 @@ const Shop = () => {
           </div>
         </nav>
 
+        <div className="container search-area">
+          <input
+            type="search"
+            placeholder="Search in Easy"
+            className="productSearchBar"
+            onBlur={(e) => {
+              setSearchTerm(e.target.value);
+            }}
+          />
+          <button className="searchButton">
+            <AiOutlineSearch />
+          </button>
+        </div>
+
         {/* <div className="cart">
           <OrderSummery cart={cart} />
         </div> */}
 
         <div className="productCart d-flex justify-content-center">
-          {filter.length === 0 && (
-            <div class="spinner-grow" role="status">
-              <span class="visually-hidden">Loading...</span>
-            </div>
-          )}
-
-          {filter.map((e) => (
-            <Product
-              key={e.key}
-              handleAddProduct={handleAddProduct}
-              product={e}
-            ></Product>
-          ))}
+          {filters
+            .filter((e) => {
+              if (searchTerm === "") {
+                return e;
+              } else if (
+                e.title.toLowerCase().includes(searchTerm.toLowerCase())
+              ) {
+                return e;
+              }
+              return 0;
+            })
+            .map((e) => (
+              <Product
+                key={e.key}
+                handleAddProduct={handleAddProduct}
+                product={e}
+              ></Product>
+            ))}
         </div>
       </div>
     );

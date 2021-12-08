@@ -8,14 +8,21 @@ import About from "./components/About/About";
 import ProductDetails from "./components/ProductDetails/ProductDetails";
 import LogIn from "./components/LogIn/LogIn";
 import Shipment from "./components/Shipment/Shipment";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import Contact from "./components/Contact/Contact";
+import Blog from "./components/Blog/Blog";
+import Cookies from "js-cookie";
 
 export const UserContext = createContext();
 
 function App() {
-  const [loggedInUser, setLoggedInUser] = useState({});
+  const [loggedInUser, setLoggedInUser] = useState(null);
+
+  useEffect(() => {
+    const token = Cookies.get("token");
+    if (token) setLoggedInUser(token);
+  }, []);
 
   return (
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
@@ -39,6 +46,10 @@ function App() {
 
           <Route path="/contact">
             <Contact />
+          </Route>
+
+          <Route path="/blog">
+            <Blog />
           </Route>
 
           <PrivateRoute path="/review">

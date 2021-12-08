@@ -68,7 +68,7 @@ const Home = () => {
                   </Link>
                 </li>
                 <li className="">
-                  <Link className="link" to="">
+                  <Link className="link" to="/blog">
                     Blog
                   </Link>
                 </li>

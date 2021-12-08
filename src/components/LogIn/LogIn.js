@@ -3,13 +3,10 @@ import "./LogIn.css";
 import { FcGoogle } from "react-icons/fc";
 import { BsFacebook } from "react-icons/bs";
 import { UserContext } from "../../App";
-import { useHistory, useLocation } from "react-router";
+import { Redirect, useHistory, useLocation } from "react-router";
 import firebase from "firebase";
 import "firebase/auth";
-//import firebaseConfig from "./firebase.config";
-//import Cookies from "js-cookie";
-
-// firebase.initializeApp(firebaseConfig);
+import Cookies from "js-cookie";
 
 const LogIn = () => {
   const [newUser, setNewUser] = useState(false);
@@ -50,7 +47,9 @@ const LogIn = () => {
     firebase
       .auth()
       .signInWithPopup(facebookProvider)
-      .then((result) => {})
+      .then((result) => {
+        console.log(result);
+      })
       .catch((error) => {
         console.log(error);
       });
@@ -121,13 +120,13 @@ const LogIn = () => {
         .signInWithEmailAndPassword(user.email, user.password)
         .then((res) => {
           const newUserInfo = { ...user };
+          const myToken = "fdfadsfadsfds";
           newUserInfo.success = true;
           newUserInfo.error = "";
           setUser(newUserInfo);
-          setLoggedInUser(newUserInfo);
-
+          setLoggedInUser(myToken, newUserInfo);
+          Cookies.set("token", myToken);
           history.replace(from);
-          //console.log("Customer Username", res.user);
         })
         .catch((error) => {
           const newUserInfo = { ...user };
@@ -137,6 +136,8 @@ const LogIn = () => {
         });
     }
   };
+
+  if (loggedInUser) return <Redirect to="/review" />;
 
   const updateUserInfo = (name) => {
     const user = firebase.auth().currentUser;

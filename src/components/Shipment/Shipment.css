@@ -1,7 +1,8 @@
 .Shipment {
-  /* border: 1px solid black; */
+  border: 1px solid black;
   height: 85vh;
   display: flex;
+  padding: 15px 0;
 }
 
 .ship-form {
@@ -9,7 +10,7 @@
   width: 300px;
   height: 450px;
   padding: 20px;
-  background-color: #333333;
+  background-color: #949494;
   color: white;
 }
 
@@ -41,7 +42,7 @@
 }
 
 .ship-button:hover {
-  background-color: #dc143ccc;
+  background-color: forestgreen;
 }
 
 .shipment-order {
@@ -79,4 +80,18 @@
   /* border: 1px solid black; */
   margin-top: 5px;
   padding: 10px;
+}
+
+.totalOrderItems {
+  color: crimson;
+  font-weight: bold;
+}
+
+.paymentOption {
+  width: 220px;
+  padding: 8px;
+}
+
+.spinnerCircle {
+  padding: 15%;
 }

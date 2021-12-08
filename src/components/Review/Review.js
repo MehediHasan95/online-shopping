@@ -112,6 +112,7 @@ const Review = () => {
         {review.map((e) => (
           <Order key={e.key} removeProduct={removeProduct} order={e}></Order>
         ))}
+
         {cleanOrder}
 
         <div className="confirmOrder ">{confirmOrder}</div>

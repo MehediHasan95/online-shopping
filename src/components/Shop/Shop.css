@@ -1,5 +1,5 @@
 .main-shop {
-  background-color: azure;
+  background-color: whitesmoke;
 }
 
 .shop-easy65 {
@@ -28,6 +28,7 @@
 .addToCartBtn {
   text-decoration: none;
   color: white;
+  margin-left: 20px;
 }
 .addToCartBtn:hover {
   color: crimson;
@@ -40,4 +41,40 @@
 }
 .allLink:hover {
   color: crimson;
+}
+
+.productSearchBar {
+  border: 1px solid rgb(158, 158, 158);
+  outline: none;
+  padding: 5px 15px;
+  width: 79vw;
+  background-color: #d9d9d9;
+}
+
+.search-area {
+  margin-top: 10px;
+}
+
+.searchButton {
+  margin-left: 0px;
+  border: none;
+  outline: none;
+  padding: 6px 10px;
+  background-color: crimson;
+  color: white;
+}
+
+.searchButton:hover {
+  background-color: forestgreen;
+}
+
+.discount {
+  color: red;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.scrollText {
+  color: white;
+  /* border: 1px solid yellow; */
 }

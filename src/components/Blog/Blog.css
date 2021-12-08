@@ -1,0 +1,10 @@
+.blog {
+  font-family: Roboto;
+  background-color: khaki;
+  height: 100vh;
+}
+
+.blogcomming {
+  font-weight: bolder;
+  font-size: 70px;
+}
