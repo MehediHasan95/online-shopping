@@ -44,10 +44,11 @@
 }
 
 .productSearchBar {
-  border: 0.5rem solid #9e9e9e;
+  border: 1px solid goldenrod;
   outline: none;
   padding: 5px 15px;
-  width: 73vw;
+  width: 81vw;
+  border-radius: 23px;
   background-color: #ffffff;
 }
 
@@ -56,17 +57,18 @@
 }
 
 .searchButton {
-  margin-left: 8px;
+  margin-left: -95px;
   border: none;
   outline: none;
-  padding: 13px 15px;
-  background-color: #333333;
+  padding: 6px 15px;
+  background-color: goldenrod;
   color: white;
+  border-radius: 23px;
   text-align: center;
 }
 
 .searchButton:hover {
-  background-color: goldenrod;
+  background-color: #b68a1c;
 }
 
 .discount {

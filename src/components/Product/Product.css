@@ -20,6 +20,7 @@
 #productImage {
   width: 100%;
   transition: 0.5s;
+  vertical-align: middle;
 }
 
 #productImage:hover {
@@ -40,7 +41,7 @@
   color: #333333;
 }
 .productName:hover {
-  color: royalblue;
+  color: #ef4a23;
   text-decoration: underline;
 }
 
@@ -60,7 +61,7 @@
 }
 
 .cardButton:hover {
-  background-color: #333333;
+  background-color: #b68a1c;
   color: white;
   transition: 0.5s;
 }
@@ -71,6 +72,11 @@
 }
 
 .price {
-  color: brown;
+  color: #ef4a23;
   font-weight: bold;
+}
+
+.bdTk {
+  font-size: 14px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }

@@ -74,28 +74,6 @@ const Shipment = () => {
     setPayment("");
   };
 
-  // db.collection("Shipment")
-  //   .get()
-  //   .then((querySnapshot) => {
-  //     let Shipment = [];
-  //     querySnapshot.forEach((doc) => {
-  //       Shipment.push({ ...doc.data(), id: doc.id });
-  //     });
-  //     console.log(Shipment);
-  //   });
-
-  // var citiesRef = db
-  //   .collection("Shipment")
-
-  //   .get(citiesRef)
-  //   .then((querySnapshot) => {
-  //     let Shipment = [];
-  //     querySnapshot.forEach((doc) => {
-  //       Shipment.push({ ...doc.data(), id: doc.id });
-  //     });
-  //     console.log(Shipment);
-  //   });
-
   return (
     <>
       <nav class="navbar navbar-expand-lg navbar-light ">
@@ -194,7 +172,7 @@ const Shipment = () => {
               onChange={(e) => setPayment(e.target.value)}
             >
               <option selected>---Select---</option>
-              <option value="Cash">Cash</option>
+              <option value="Cash on Delivery">Cash on Delivery</option>
               <option value="Bkash">Bkash</option>
               <option value="Nagat">Nagat</option>
               <option value="Rocket">Rocket</option>
